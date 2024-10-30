@@ -14,23 +14,23 @@ import {
 import { useSearchParams } from "next/navigation";
 import { useFetchPageBlogs } from "@/hooks/fetch-page-blogs";
 import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
 
 const BlogPostListingView = ({ blogPage }: { blogPage: BlogPage }) => {
-  const { data, isPending } = useFetchPageBlogs(blogPage);
+  const { data, isPending, isError, refetch } = useFetchPageBlogs(blogPage);
 
   return (
     <div className="max-w-screen-lg m-auto flex flex-col mb-32">
-      {!isPending ? (
+      {isError ? <Button onClick={() => refetch()}></Button> : null}
+      {isPending ? <span>Loading...</span> : null}
+      {data?.blogs.length === 0 ? <span>No blogs found</span> : null}
+      {!isError && !isPending && data.blogs.length > 0 ? (
         <ResponsiveGridLayout>
-          {data
-            ? data.blogs.map((blog) => (
-                <BlogPostItem key={blog.id} blog={blog} />
-              ))
-            : null}
+          {data.blogs.map((blog) => (
+            <BlogPostItem key={blog.id} blog={blog} />
+          ))}
         </ResponsiveGridLayout>
-      ) : (
-        <span>Loading...</span>
-      )}
+      ) : null}
       <div className="m-auto">
         <BlogPostListingViewPagination />
       </div>

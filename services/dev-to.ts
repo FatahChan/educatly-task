@@ -63,13 +63,13 @@ export const fetchBlogPosts = async (page = 1, perPage = 9) => {
   //   if (page > 2) {
   //     throw new Error("Not implemented");
   //   }
-  if (page > 2) {
-    return {
-      blogs: [],
-      page,
-      perPage,
-    };
-  }
+  //   if (page > 2) {
+  //     return {
+  //       blogs: [],
+  //       page,
+  //       perPage,
+  //     };
+  //   }
   try {
     const response = await devToApi.get("/articles", {
       params: {
