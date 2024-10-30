@@ -6,8 +6,13 @@ import { Button } from "@/components/ui/button";
 import { useFetchInfiniteBlogs } from "@/hooks/fetch-infinite-blogs";
 
 const BlogPostListingView = ({ blogPage }: { blogPage: BlogPage }) => {
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    useFetchInfiniteBlogs(blogPage);
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isFetchNextPageError,
+  } = useFetchInfiniteBlogs(blogPage);
 
   return (
     <div className="max-w-screen-lg m-auto flex flex-col mb-32">
@@ -20,7 +25,11 @@ const BlogPostListingView = ({ blogPage }: { blogPage: BlogPage }) => {
       <div className="m-auto">
         {hasNextPage ? (
           <Button onClick={() => fetchNextPage()} disabled={isFetchingNextPage}>
-            {isFetchingNextPage ? "loading..." : "load more"}
+            {isFetchingNextPage
+              ? "Loading..."
+              : isFetchNextPageError
+              ? "Retry"
+              : "Load more"}
           </Button>
         ) : null}
       </div>
