@@ -10,10 +10,10 @@
   - Error message
 
 ## Integration with DEV.to API
-- [ ] Fetch blog posts from the DEV.to API (https://dev.to/api/articles).
-- [ ] Implement pagination to load and display blog posts in batches.
-- [ ] Handle HTTP errors gracefully and display an error message if fetching blog posts fails.
-- [ ] Display a loading indicator while fetching data from the API.
+- [x] Fetch blog posts from the DEV.to API (https://dev.to/api/articles).
+- [x] Implement pagination to load and display blog posts in batches.
+- [x] Handle HTTP errors gracefully and display an error message if fetching blog posts fails.
+- [x] Display a loading indicator while fetching data from the API.
 
 ## Responsive Design
 - [ ] Implement the provided Figma designs for both mobile and web views.
@@ -21,8 +21,8 @@
 - [ ] Utilize CSS media queries and Next.js's built-in responsiveness features.
 
 ## Blog Post Listing View
-- [ ] Display blog post items in a grid layout.
-- [ ] Each blog post item should include:
+- [x] Display blog post items in a grid layout.
+- [x] Each blog post item should include:
   - Post title
   - Author name
   - Publication date

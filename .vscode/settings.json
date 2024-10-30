@@ -1,0 +1,10 @@
+{
+  "cSpell.words": ["tailwindcss", "tanstack"],
+
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.removeUnusedImports": "always"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
