@@ -51,9 +51,9 @@ Design is not clear on the task above need more clarification
 - [x] Display a message indicating that there are no blog posts to show.
 
 ## Submission
-- [ ] Provide a GitHub repository containing your Next.js project code.
-- [ ] Include clear instructions on how to run the project locally.
-- [ ] Optionally, provide a live demo of the application hosted on a platform like Vercel or Netlify.
+- [x] Provide a GitHub repository containing your Next.js project code.
+- [x] Include clear instructions on how to run the project locally.
+- [x] Optionally, provide a live demo of the application hosted on a platform like Vercel or Netlify.
 
 ## Notes
 - Focus on writing clean, readable, and maintainable code.
