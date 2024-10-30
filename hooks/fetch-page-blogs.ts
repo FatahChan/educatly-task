@@ -41,27 +41,30 @@ export const useFetchPageBlogs = (initialBlogPage?: BlogPage) => {
     [queryClient]
   );
 
-  const prefetchPage = useCallback((page: number) => {
-    queryClient.prefetchQuery({
-      queryKey: ["blogs", page],
-      queryFn: async () => {
-        try {
-          const fetchedPage = await fetchBlogPosts(page);
-          if (fetchedPage.blogs.length === 0) {
-            setFinalPage((prevFinalPage) => {
-              if (prevFinalPage === undefined) {
-                return page - 1;
-              }
-              return Math.min(prevFinalPage, page - 1);
-            });
+  const prefetchPage = useCallback(
+    (page: number) => {
+      queryClient.prefetchQuery({
+        queryKey: ["blogs", page],
+        queryFn: async () => {
+          try {
+            const fetchedPage = await fetchBlogPosts(page);
+            if (fetchedPage.blogs.length === 0) {
+              setFinalPage((prevFinalPage) => {
+                if (prevFinalPage === undefined) {
+                  return page - 1;
+                }
+                return Math.min(prevFinalPage, page - 1);
+              });
+            }
+            return fetchedPage;
+          } catch (error) {
+            console.log("Error prefetching page:", error);
           }
-          return fetchedPage;
-        } catch (error) {
-          console.log("Error prefetching page:", error);
-        }
-      },
-    });
-  }, []);
+        },
+      });
+    },
+    [queryClient]
+  );
   useEffect(() => {
     const numberOfPagesToPrefetch = 2;
 
@@ -75,7 +78,7 @@ export const useFetchPageBlogs = (initialBlogPage?: BlogPage) => {
     for (let i = page + 1; i <= page + numberOfPagesToPrefetch; i++) {
       prefetchPage(i);
     }
-  }, [isPagePrefetched, page, queryClient]);
+  }, [finalPage, isPagePrefetched, page, prefetchPage, queryClient]);
 
   // Mark the latest page that has been reached
   const [latestPage, setLatestPage] = useState(page);

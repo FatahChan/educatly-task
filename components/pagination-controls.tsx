@@ -31,6 +31,7 @@ export const PaginationControls = () => {
                 e.preventDefault();
               }
             }}
+            shallow
             className={cn({
               "pointer-events-none opacity-20": page === 1 || isPending,
             })}
@@ -52,6 +53,7 @@ export const PaginationControls = () => {
                   e.preventDefault();
                 }
               }}
+              shallow
             >
               {index + 1}
             </PaginationLink>
@@ -73,6 +75,7 @@ export const PaginationControls = () => {
             className={cn({
               "pointer-events-none opacity-20": page === finalPage || isPending,
             })}
+            shallow
           />
         </PaginationItem>
       </PaginationContent>
