@@ -1,4 +1,5 @@
 import BlogPostListingView from "@/components/blog-post-listing-view-pagination";
+import Hero from "@/components/Hero";
 import { PaginationControls } from "@/components/pagination-controls";
 import { fetchBlogPosts } from "@/services/dev-to";
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
@@ -10,6 +11,7 @@ export default async function Home(props: { searchParams: SearchParams }) {
 
   return (
     <main className="pb-32 pt-8">
+      <Hero />
       <BlogPostListingView blogPage={blogPage} />;
       <div className="m-auto">
         <PaginationControls />
