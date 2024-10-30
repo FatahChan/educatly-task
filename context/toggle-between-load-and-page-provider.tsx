@@ -1,3 +1,4 @@
+"use client";
 import { createContext, ReactNode, useState } from "react";
 
 export const ToggleBetweenLoadAndPageContext = createContext<{
@@ -5,7 +6,6 @@ export const ToggleBetweenLoadAndPageContext = createContext<{
   toggleLoadPage: () => void;
 } | null>(null);
 
-// Create a provider component
 export const ToggleBetweenLoadAndPageProvider = ({
   children,
 }: {

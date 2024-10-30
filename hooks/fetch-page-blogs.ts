@@ -93,5 +93,5 @@ export const useFetchPageBlogs = (initialBlogPage?: BlogPage) => {
       latestPage,
       finalPage,
     };
-  }, [latestPage, page, query, queryClient]);
+  }, [finalPage, latestPage, page, query, queryClient]);
 };
