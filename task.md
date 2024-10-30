@@ -2,7 +2,7 @@
 
 ## Setup
 - [x] Set up a new Next.js project.
-- [ ] Create separate components for:
+- [x] Create separate components for:
   - Blog post listing view
   - Blog post item
   - Pagination controls
@@ -27,24 +27,28 @@
   - Author name
   - Publication date
   - Cover image (if available)
-- [ ] Ensure clicking on a blog post item navigates the user to the full post on the DEV.to website.
+- [x] Ensure clicking on a blog post item navigates the user to the full post on the DEV.to website.
+
+
 
 ## Pagination
-- [ ] Implement pagination controls to navigate between pages of blog posts.
-- [ ] Fetch and display a new batch of blog posts when the user navigates to a different page.
-- [ ] Update the pagination controls based on the current page and total number of pages.
+- [x] Implement pagination controls to navigate between pages of blog posts.
+- [x] Fetch and display a new batch of blog posts when the user navigates to a different page.
+- [x] Update the pagination controls based on the current page and total number of pages.
+
+Design is not clear on the task above need more clarification
 
 ## Loading Indicator
-- [ ] Display a loading indicator while fetching blog posts from the API.
-- [ ] Ensure that the loading indicator is visible and provides feedback to the user during the loading process.
+- [x] Display a loading indicator while fetching blog posts from the API.
+- [x] Ensure that the loading indicator is visible and provides feedback to the user during the loading process.
 
 ## Error Handling
-- [ ] Handle errors gracefully and display an error message if fetching blog posts fails.
-- [ ] Allow users to retry fetching blog posts by clicking on a "Retry" button.
+- [x] Handle errors gracefully and display an error message if fetching blog posts fails.
+- [x] Allow users to retry fetching blog posts by clicking on a "Retry" button.
 
 ## Empty State Handling
-- [ ] Handle the scenario where no blog posts are available.
-- [ ] Display a message indicating that there are no blog posts to show.
+- [x] Handle the scenario where no blog posts are available.
+- [x] Display a message indicating that there are no blog posts to show.
 
 ## Submission
 - [ ] Provide a GitHub repository containing your Next.js project code.
