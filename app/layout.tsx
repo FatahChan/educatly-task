@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import TanStackQueryProvider from "@/context/tan-stack-query";
+import TanStackQueryProvider from "@/context/tan-stack-query-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { ToggleBetweenLoadAndPageProvider } from "@/context/toggle-between-load-and-page-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,7 +31,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TanStackQueryProvider>{children}</TanStackQueryProvider>
+        <ToggleBetweenLoadAndPageProvider>
+          <TanStackQueryProvider>{children}</TanStackQueryProvider>
+        </ToggleBetweenLoadAndPageProvider>
         <Toaster />
       </body>
     </html>
