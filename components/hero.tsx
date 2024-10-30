@@ -1,3 +1,5 @@
+import { SearchBar } from "./search-bar";
+
 const Hero = () => {
   return (
     <div className="bg-[#F5F7FF] md:py-64 px-4">
@@ -8,11 +10,7 @@ const Hero = () => {
         <p className="text-lg text-[#6B6B6B] mb-6">
           The latest industry news, interviews, technologies, and resources.
         </p>
-        <input
-          type="text"
-          placeholder="Search"
-          className="border border-gray-300 rounded-lg py-2 px-4 w-full max-w-md mx-auto"
-        />
+        <SearchBar />
       </div>
     </div>
   );

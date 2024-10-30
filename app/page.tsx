@@ -1,5 +1,5 @@
 import BlogPostListingView from "@/components/blog-post-listing-view-pagination";
-import Hero from "@/components/Hero";
+import Hero from "@/components/hero";
 import { PaginationControls } from "@/components/pagination-controls";
 import { fetchBlogPosts } from "@/services/dev-to";
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;

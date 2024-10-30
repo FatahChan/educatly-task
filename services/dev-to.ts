@@ -99,7 +99,7 @@ export const fetchSinglePost = async (postId: number) => {
   }
 };
 
-export const searchBlogPosts = async (query = "", page = 1, perPage = 10) => {
+export const searchBlogPosts = async (query = "", page = 1, perPage = 100) => {
   try {
     const response = await devToApi.get("/articles", {
       params: {
