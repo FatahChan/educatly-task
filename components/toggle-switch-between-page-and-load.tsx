@@ -1,3 +1,4 @@
+"use client";
 import { useContext } from "react";
 import { Switch } from "./ui/switch";
 import { ToggleBetweenLoadAndPageContext } from "@/context/toggle-between-load-and-page-provider";
@@ -9,5 +10,6 @@ export const ToggleSwitchBetweenPageAndLoadMore = () => {
       "ToggleBetweenLoadAndPageContext must be used within a ToggleBetweenLoadAndPageProvider"
     );
   }
-  return <Switch onChange={() => context.toggleLoadPage} />;
+
+  return <Switch onCheckedChange={() => context.toggleLoadPage()} />;
 };

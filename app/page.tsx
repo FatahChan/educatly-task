@@ -12,14 +12,10 @@ export default async function Home(props: { searchParams: SearchParams }) {
   return (
     <main className="pb-32 pt-8">
       <Hero />
-      {/* uncomment to see both load more version and pagination version*/}
-      {/* <BlogPostListingViewToggleWrapper blogPage={blogPage} />; */}
       <BlogPostListingView blogPage={blogPage} />;
       <div className="m-auto">
         <PaginationControls />
       </div>
-      {/* uncomment to see both load more version and pagination version*/}
-      {/* <ToggleSwitchBetweenPageAndLoadMore /> */}
     </main>
   );
 }

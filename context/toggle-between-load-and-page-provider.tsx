@@ -13,7 +13,11 @@ export const ToggleBetweenLoadAndPageProvider = ({
 }) => {
   const [isPageSelected, setIsPageSelected] = useState(true);
 
-  const toggleLoadPage = () => setIsPageSelected((prev) => !prev);
+  const toggleLoadPage = () =>
+    setIsPageSelected((prev) => {
+      console.log(prev);
+      return !prev;
+    });
 
   return (
     <ToggleBetweenLoadAndPageContext.Provider

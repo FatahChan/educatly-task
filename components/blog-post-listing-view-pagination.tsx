@@ -3,23 +3,27 @@ import { ResponsiveGridLayout } from "./ui/responsive-grid-layout";
 import BlogPostItem from "./blog-post-item";
 import { BlogPage } from "@/services/dev-to";
 
-import { useFetchPageBlogs } from "@/hooks/fetch-page-blogs";
 import { ErrorMessage } from "./error-message";
-import { useRouter } from "next/navigation";
 import { LoadingSpinner } from "./loading-spinner";
+import { useRouter } from "next/navigation";
+import { usePaginationBlog } from "@/hooks/use-pagination";
 
 const BlogPostListingView = ({ blogPage }: { blogPage: BlogPage }) => {
-  const { data, isPending, isError, refetch } = useFetchPageBlogs(blogPage);
+  const { data, isPending, isError, refetch } = usePaginationBlog(blogPage);
   const router = useRouter();
-
   return (
-    <div className="max-w-screen-lg m-auto flex flex-col mb-8">
+    <div className="max-w-screen-lg m-auto flex flex-col mb-8 mt-8">
       {isError ? (
         <ErrorMessage action={() => refetch()} actionLabel="Retry">
           Something went wrong
         </ErrorMessage>
       ) : null}
-      {isPending ? <LoadingSpinner /> : null}
+      {isPending ? (
+        <div className="m-auto">
+          {" "}
+          <LoadingSpinner />{" "}
+        </div>
+      ) : null}
       {data?.blogs.length === 0 ? (
         <ErrorMessage action={() => router.push("/")} actionLabel="Return Home">
           No blog posts found

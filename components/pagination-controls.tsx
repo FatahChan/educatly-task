@@ -1,7 +1,5 @@
 "use client";
-import { useFetchPageBlogs } from "@/hooks/fetch-page-blogs";
 import { cn } from "@/lib/utils";
-import { useSearchParams } from "next/navigation";
 import {
   Pagination,
   PaginationContent,
@@ -10,11 +8,23 @@ import {
   PaginationLink,
   PaginationNext,
 } from "./ui/pagination";
+import { PREFETCH_OFFSET, usePaginationBlog } from "@/hooks/use-pagination";
+import { useMemo } from "react";
 
 export const PaginationControls = () => {
-  const searchParams = useSearchParams();
-  const page = Number(searchParams.get("page")) || 1;
-  const { latestPage, isPending, finalPage } = useFetchPageBlogs();
+  const { page } = usePaginationBlog();
+
+  const pageNumbers = useMemo(
+    () =>
+      Array.from({
+        length: PREFETCH_OFFSET * 2 + 1,
+      })
+        .map((_, index) => {
+          return page + index - PREFETCH_OFFSET;
+        })
+        .filter((num) => num > 0),
+    [page]
+  );
 
   return (
     <Pagination>
@@ -27,37 +37,30 @@ export const PaginationControls = () => {
               },
             }}
             onClick={(e) => {
-              if (page === 1 || isPending) {
+              if (page === 1) {
                 e.preventDefault();
               }
             }}
             shallow
             scroll={false}
             className={cn({
-              "pointer-events-none opacity-20": page === 1 || isPending,
+              "pointer-events-none opacity-20": page === 1,
             })}
           />
         </PaginationItem>
-        {Array.from({
-          length: finalPage === undefined ? latestPage + 1 : finalPage,
-        }).map((_, index) => (
-          <PaginationItem key={index}>
+        {pageNumbers.map((pageIndex) => (
+          <PaginationItem key={pageIndex}>
             <PaginationLink
-              isActive={page === index + 1}
+              isActive={page === pageIndex}
               href={{
                 query: {
-                  page: index + 1,
+                  page: pageIndex,
                 },
               }}
-              onClick={(e) => {
-                if (isPending) {
-                  e.preventDefault();
-                }
-              }}
-              shallow
               scroll={false}
+              shallow
             >
-              {index + 1}
+              {pageIndex}
             </PaginationLink>
           </PaginationItem>
         ))}
@@ -69,16 +72,8 @@ export const PaginationControls = () => {
                 page: page + 1,
               },
             }}
-            onClick={(e) => {
-              if (isPending || finalPage === page) {
-                e.preventDefault();
-              }
-            }}
-            className={cn({
-              "pointer-events-none opacity-20": page === finalPage || isPending,
-            })}
+            prefetch={true}
             scroll={false}
-            shallow
           />
         </PaginationItem>
       </PaginationContent>
