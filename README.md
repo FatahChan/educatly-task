@@ -41,6 +41,13 @@ To run the project locally, follow these steps:
 5. **Open the Application:**
    Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to see the application in action.
 
+## Additional Note
+
+The design and the requirements was conflicting or was not clear enough, or had some mis terminologys used.
+
+If you want to render the traditional Pagiation, which is what was mentioned on the requirement, then you can use the repo as easy.
+
+If you want to render the `Load more` style of pagination, render the post listing from `blog-post-listing-view-load-more.tsx`
 
 
 ## Demo
