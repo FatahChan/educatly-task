@@ -52,5 +52,12 @@ If you want to render the `Load more` style of pagination, render the post listi
 
 The toggle switch was added last minute, so it was not tested
 
+
+
+---- 
+
+Another branch `https://github.com/FatahChan/educatly-task/tree/feat/imporve-traditinal-pagination` is added for better traditional pagination. this is made after the initial 5 hours allowed
+
+
 ## Demo
 [Demo Lik](https://educatly-task-omega.vercel.app/)
