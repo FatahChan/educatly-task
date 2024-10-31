@@ -50,5 +50,7 @@ If you want to render the traditional Pagiation, which is what was mentioned on 
 If you want to render the `Load more` style of pagination, render the post listing from `blog-post-listing-view-load-more.tsx`
 
 
+The toggle switch was added last minute, so it was not tested
+
 ## Demo
 [Demo Lik](https://educatly-task-omega.vercel.app/)
